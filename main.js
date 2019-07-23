@@ -1,6 +1,6 @@
 function getAllRequest()
 {
-	axios.get('http://localhost:8080/items')
+	axios.get('http://localhost:8080/item')
 	  .then(function (response) {
 		console.log(response);
 	  })
@@ -13,7 +13,7 @@ function getAllRequest()
 
 function getFilteredRequest()
 {
-	axios.get('http://localhost:8080/items', {
+	axios.get('http://localhost:8080/item', {
 		params: {
 			filter : 'myFilter'
 		}
@@ -31,7 +31,7 @@ function getFilteredRequest()
 function getByIdRequest()
 {
 	id = 10;
-	axios.get('http://localhost:8080/items/' + id)
+	axios.get('http://localhost:8080/item/' + id)
 	  .then(function (response) {
 		console.log(response);
 	  })
@@ -44,7 +44,7 @@ function getByIdRequest()
 
 function postRequest()
 {
-	axios.post('http://localhost:8080/items', {
+	axios.post('http://localhost:8080/item', {
 		data: 'NewItem'
 	  })
 	  .then(function (response) {
@@ -59,8 +59,24 @@ function postRequest()
 
 function putRequest()
 {
-	axios.put('http://localhost:8080/items', {
-		id: '3',
+	id = 10;
+	axios.put('http://localhost:8080/item/' + id, {
+		data: 'NewItem'
+	  })
+	  .then(function (response) {
+		console.log(response);
+	  })
+	  .catch(function (error) {
+		console.log(error);
+	  })
+	  .then(function () {
+	  });
+}
+
+function patchRequest()
+{
+	id = 10;
+	axios.patch('http://localhost:8080/item/' + id, {
 		data: 'NewItem'
 	  })
 	  .then(function (response) {
@@ -76,7 +92,7 @@ function putRequest()
 function deleteRequest()
 {
 	id = 10;
-	axios.delete('http://localhost:8080/items/' + id)
+	axios.delete('http://localhost:8080/item/' + id)
 	  .then(function (response) {
 		console.log(response);
 	  })
@@ -86,4 +102,3 @@ function deleteRequest()
 	  .then(function () {
 	  });
 }
-
